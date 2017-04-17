@@ -26,7 +26,7 @@ public class Examen extends javax.swing.JFrame {
     int posicion = 0;
     Respuestas r = new Respuestas();
     Preguntas p = new Preguntas();
-    Object[] select = {"","","","",""};
+    Object[] select = {"","","","","","","","","",""};
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -181,12 +181,12 @@ public class Examen extends javax.swing.JFrame {
 
     private void avanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_avanzarActionPerformed
 
-        if(posicion == 3){
+        if(posicion >= 9){
             avanzar.setEnabled(false);
             terminarExamen.setEnabled(true);
         }
         
-        if(posicion < 5){
+        if(posicion < 10){
             regresar.setEnabled(true);
             posicion++;
             question.setText(p.getPregunta(posicion));
@@ -211,9 +211,11 @@ public class Examen extends javax.swing.JFrame {
             regresar.setEnabled(false);
         }
         
+        
         if(posicion > -1){
             posicion--;
             avanzar.setEnabled(true);
+            
             question.setText(p.getPregunta(posicion));
             String[] a = r.setRespuestas(posicion);
             buttonGroup1.clearSelection(); // sirve para borrar las selecciones de los radio button
@@ -231,13 +233,13 @@ public class Examen extends javax.swing.JFrame {
         
         int calificacion = 0;
         
-        for(int i = 0; i < 5; i++){
+        for(int i = 0; i < 10; i++){
             if(select[i].equals(r.getRespuesta(i))){
                 calificacion = calificacion + 1;
             }
         }
         
-        calificacion = calificacion * 2;
+    
         
         JOptionPane.showMessageDialog(null, "Tu calificacion es " +  calificacion);
         
