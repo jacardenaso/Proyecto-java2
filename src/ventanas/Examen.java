@@ -186,7 +186,7 @@ public class Examen extends javax.swing.JFrame {
             terminarExamen.setEnabled(true);
         }
         
-        if(posicion < 10){
+        if(posicion < 9){
             regresar.setEnabled(true);
             posicion++;
             question.setText(p.getPregunta(posicion));
